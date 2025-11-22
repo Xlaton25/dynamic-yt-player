@@ -26,3 +26,21 @@ document.getElementById("loadVideo").addEventListener("click", function () {
   // Update the iframe source
   iframe.src = updatedSrc;
 });
+
+ const checkbox = document.getElementById("theme-toggle");
+
+    // Load saved theme
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+        checkbox.checked = true;
+    }
+
+    checkbox.addEventListener("change", () => {
+        if (checkbox.checked) {
+            document.body.classList.add("dark-mode");
+            localStorage.setItem("theme", "dark");
+        } else {
+            document.body.classList.remove("dark-mode");
+            localStorage.setItem("theme", "light");
+        }
+    });
